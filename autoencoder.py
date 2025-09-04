@@ -378,4 +378,6 @@ class ContrastiveAE(object):
                         if current_loss < min_loss:
                             print(f'updating best loss from {min_loss} to {current_loss}')
                             min_loss = current_loss
-                            ae_model.save_weights(weights_save_name)
+                            if (weights_save_name != ""): ae_model.save_weights(weights_save_name)
+                            return ae_model
+        return None
